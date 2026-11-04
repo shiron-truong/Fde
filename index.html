@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FDE - Đối tác tin cậy tư vấn đầu tư chứng khoán cho nhà đầu tư Việt Nam. Phân tích chuyên sâu, chiến lược rõ ràng, đồng hành dài hạn.">
+  <title>FDE | Tư vấn Đầu tư Chứng khoán Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A2540;
+      --primary-light: #1A3A5C;
+      --accent: #00C853;
+      --accent-hover: #00A844;
+      --gold: #D4AF37;
+      --text: #1A1A2E;
+      --text-light: #5A6A7A;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+      --border: #E2E8F0;
+      --shadow: 0 4px 24px rgba(10, 37, 64, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), #0D3B66);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 200, 83, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 140px 0 100px;
+      background: linear-gradient(160deg, #0A2540 0%, #0D3B66 50%, #0A2540 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 200, 83, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 200, 83, 0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(0, 200, 83, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin: 0;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header .label {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .about-content p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .about-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .about-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .about-card .icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(0, 200, 83, 0.1), rgba(0, 200, 83, 0.05));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* Why Us */
+    .why-section {
+      background: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .why-item:hover {
+      border-color: var(--accent);
+      background: white;
+    }
+
+    .why-number {
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .why-item h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .why-item p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #0D3B66 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .contact-info p {
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item .icon-box {
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 200, 83, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .contact-item span {
+      font-weight: 500;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 36px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      background: var(--bg);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      opacity: 0.75;
+      font-size: 0.95rem;
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .about-grid,
+      .contact-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-stats {
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 120px 0 70px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: none;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="logo">
+          <div class="logo-icon">FDE</div>
+          <span>FDE</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">Về chúng tôi</a></li>
+          <li><a href="#services">Dịch vụ</a></li>
+          <li><a href="#why">Lý do chọn</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#contact" class="btn btn-primary">Tư vấn miễn phí</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about">Về chúng tôi</a>
+    <a href="#services">Dịch vụ</a>
+    <a href="#why">Lý do chọn</a>
+    <a href="#contact">Liên hệ</a>
+    <a href="#contact" class="btn btn-primary">Tư vấn miễn phí</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>📈</span> Đối tác tin cậy của nhà đầu tư Việt Nam
+        </div>
+        <h1>Đầu tư chứng khoán<br><span>thông minh & bền vững</span></h1>
+        <p>FDE đồng hành cùng bạn xây dựng chiến lược đầu tư rõ ràng, quản trị rủi ro chuyên nghiệp và tối ưu lợi nhuận dài hạn trên thị trường chứng khoán Việt Nam.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Nhận tư vấn miễn phí</a>
+          <a href="#services" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: white;">Xem dịch vụ</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>500+</h3>
+            <p>Nhà đầu tư đồng hành</p>
+          </div>
+          <div class="stat-item">
+            <h3>8+</h3>
+            <p>Năm kinh nghiệm</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>Khách hàng hài lòng</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Về FDE</span>
+        <h2>Chúng tôi là ai?</h2>
+        <p>Đội ngũ chuyên gia đầu tư chứng khoán với kinh nghiệm thực chiến trên thị trường Việt Nam</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>Đối tác chiến lược cho nhà đầu tư cá nhân & tổ chức</h3>
+          <p>FDE ra đời với sứ mệnh giúp nhà đầu tư Việt Nam tiếp cận kiến thức và chiến lược đầu tư chuyên nghiệp, minh bạch và hiệu quả.</p>
+          <p>Chúng tôi không bán "mẹo" hay "bí kíp". Chúng tôi xây dựng cùng bạn một hệ thống tư duy đầu tư vững chắc, phù hợp với mục tiêu tài chính và khẩu vị rủi ro của từng cá nhân.</p>
+          <ul class="about-list">
+            <li>Phân tích chuyên sâu dựa trên dữ liệu thực tế</li>
+            <li>Chiến lược rõ ràng, dễ theo dõi và điều chỉnh</li>
+            <li>Đồng hành dài hạn, không chỉ tư vấn một lần</li>
+            <li>Ưu tiên bảo vệ vốn và quản trị rủi ro</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <div class="icon">🎯</div>
+          <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.25rem;">Triết lý đầu tư</h3>
+          <p style="color: var(--text-light); margin-bottom: 0;">
+            "Đầu tư không phải cuộc đua ngắn hạn. Thành công đến từ sự kiên nhẫn, kỷ luật và hiểu rõ những gì mình đang nắm giữ."
+          </p>
+          <p style="margin-top: 20px; font-weight: 600; color: var(--primary);">— Đội ngũ FDE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Dịch vụ</span>
+        <h2>Chúng tôi cung cấp gì?</h2>
+        <p>Giải pháp tư vấn toàn diện giúp bạn đầu tư tự tin hơn trên thị trường chứng khoán Việt Nam</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Tư vấn chiến lược đầu tư</h3>
+          <p>Xây dựng kế hoạch đầu tư cá nhân hóa dựa trên mục tiêu tài chính, thời gian và khẩu vị rủi ro của bạn.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>Phân tích cổ phiếu & thị trường</h3>
+          <p>Báo cáo phân tích cơ bản & kỹ thuật chi tiết, cập nhật xu hướng ngành và cơ hội đầu tư tiềm năng.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📁</div>
+          <h3>Quản lý danh mục</h3>
+          <p>Theo dõi, đánh giá và điều chỉnh danh mục định kỳ để tối ưu hiệu suất và kiểm soát rủi ro.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Đào tạo & chia sẻ kiến thức</h3>
+          <p>Workshop, webinar và tài liệu giúp nhà đầu tư nâng cao kỹ năng đọc báo cáo tài chính và phân tích thị trường.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Quản trị rủi ro</h3>
+          <p>Xây dựng hệ thống cắt lỗ, chốt lời và phân bổ tài sản hợp lý để bảo vệ vốn trong mọi điều kiện thị trường.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤝</div>
+          <h3>Đồng hành 1-1</h3>
+          <p>Tư vấn trực tiếp với chuyên gia, giải đáp thắc mắc và hỗ trợ ra quyết định đầu tư quan trọng.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why" class="why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Tại sao chọn FDE</span>
+        <h2>Lợi thế khi đồng hành cùng chúng tôi</h2>
+        <p>Những giá trị cốt lõi tạo nên sự khác biệt của FDE</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-number">01</div>
+          <div>
+            <h4>Am hiểu thị trường Việt Nam</h4>
+            <p>Đội ngũ có nhiều năm thực chiến trên HOSE, HNX và UPCoM, hiểu rõ đặc thù thị trường nội địa.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-number">02</div>
+          <div>
+            <h4>Minh bạch & trung thực</h4>
+            <p>Không hứa hẹn lợi nhuận ảo. Chúng tôi nói thẳng rủi ro và chỉ tư vấn những gì phù hợp với bạn.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-number">03</div>
+          <div>
+            <h4>Cá nhân hóa cao</h4>
+            <p>Mỗi nhà đầu tư có mục tiêu khác nhau. Chiến lược của FDE luôn được thiết kế riêng cho từng khách hàng.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-number">04</div>
+          <div>
+            <h4>Đồng hành dài hạn</h4>
+            <p>Chúng tôi không chỉ tư vấn một lần rồi bỏ. FDE theo dõi và hỗ trợ bạn trong suốt hành trình đầu tư.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Sẵn sàng đầu tư thông minh hơn?</h2>
+      <p>Đăng ký nhận buổi tư vấn miễn phí 30 phút với chuyên gia FDE để đánh giá danh mục và định hướng chiến lược.</p>
+      <a href="#contact" class="btn btn-primary">Đăng ký ngay</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Liên hệ</span>
+        <h2>Kết nối với FDE</h2>
+        <p>Hãy để lại thông tin, chúng tôi sẽ liên hệ tư vấn trong thời gian sớm nhất</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Thông tin liên hệ</h3>
+          <p>Bạn có câu hỏi về dịch vụ hoặc muốn đặt lịch tư vấn? Đội ngũ FDE luôn sẵn sàng hỗ trợ.</p>
+          <div class="contact-item">
+            <div class="icon-box">📧</div>
+            <div>
+              <span>Email</span><br>
+              <a href="mailto:contact@fde.io.vn" style="color: var(--accent); text-decoration: none;">contact@fde.io.vn</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-box">🌐</div>
+            <div>
+              <span>Website</span><br>
+              <span>fde.io.vn</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-box">📍</div>
+            <div>
+              <span>Địa chỉ</span><br>
+              <span>Thành phố Hồ Chí Minh, Việt Nam</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-box">⏰</div>
+            <div>
+              <span>Giờ làm việc</span><br>
+              <span>Thứ 2 – Thứ 6: 8:30 – 17:30</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Họ và tên *</label>
+              <input type="text" id="name" name="name" required placeholder="Nguyễn Văn A">
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="09xx xxx xxx">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="interest">Bạn quan tâm đến</label>
+              <select id="interest" name="interest">
+                <option value="">Chọn dịch vụ</option>
+                <option value="strategy">Tư vấn chiến lược đầu tư</option>
+                <option value="analysis">Phân tích cổ phiếu</option>
+                <option value="portfolio">Quản lý danh mục</option>
+                <option value="education">Đào tạo kiến thức</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Nội dung cần tư vấn</label>
+              <textarea id="message" name="message" placeholder="Mô tả ngắn về mục tiêu đầu tư hoặc câu hỏi của bạn..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Gửi yêu cầu tư vấn</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">FDE</div>
+            <span>FDE</span>
+          </a>
+          <p>Đối tác tin cậy đồng hành cùng nhà đầu tư Việt Nam xây dựng chiến lược đầu tư chứng khoán chuyên nghiệp và bền vững.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liên kết</h4>
+          <ul>
+            <li><a href="#about">Về chúng tôi</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#why">Lý do chọn FDE</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Dịch vụ</h4>
+          <ul>
+            <li><a href="#services">Tư vấn chiến lược</a></li>
+            <li><a href="#services">Phân tích thị trường</a></li>
+            <li><a href="#services">Quản lý danh mục</a></li>
+            <li><a href="#services">Đào tạo đầu tư</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 FDE. Tất cả quyền được bảo lưu.</p>
+        <p>fde.io.vn — Tư vấn đầu tư chứng khoán Việt Nam</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert('Cảm ơn ' + name + '! Yêu cầu tư vấn của bạn đã được ghi nhận. Đội ngũ FDE sẽ liên hệ sớm nhất.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
